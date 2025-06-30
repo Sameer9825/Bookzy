@@ -1,107 +1,141 @@
-<nav class="bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <!-- Main Links -->
-            <div class="flex space-x-6 items-center">
-                <a href="/" class="text-gray-700 hover:text-indigo-600">Home</a>
+<nav class=" pl-10 ">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Left -->
+      <div class="flex items-center space-x-10">
+        <!-- Replace this with your logo elsewhere -->
+        <!-- Navigation links -->
+        <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Catalog</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Authors</a>
 
-                <!-- Books Dropdown -->
-                <div class="relative group">
-                    <button class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-                        Books
-                    </button>
-                    <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 shadow-md rounded hidden group-hover:block z-10">
-                        <a href="/books" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">All Books</a>
-                        <a href="/books/new" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">New Arrivals</a>
-                        <a href="/books/popular" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Popular</a>
-                        <a href="/books/recommended" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Recommended</a>
-                    </div>
-                </div>
-
-                <!-- Categories Dropdown -->
-                <div class="relative group">
-                    <button class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-                        Categories
-                    </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-md rounded hidden group-hover:block z-10">
-                        <a href="/categories/fiction" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Fiction</a>
-                        <a href="/categories/non-fiction" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Non-Fiction</a>
-                        <a href="/categories/scifi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Science Fiction</a>
-                        <a href="/categories/romance" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Romance</a>
-                        <a href="/categories/history" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">History</a>
-                        <a href="/categories/children" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Children’s</a>
-                    </div>
-                </div>
-
-                <a href="/authors" class="text-gray-700 hover:text-indigo-600">Authors</a>
-                <a href="/my-library" class="text-gray-700 hover:text-indigo-600">My Library</a>
-                <a href="/search" class="text-gray-700 hover:text-indigo-600">Search</a>
-                <a href="/about" class="text-gray-700 hover:text-indigo-600">About</a>
-            </div>
-
-            <!-- Authentication Links -->
-            <div class="flex items-center space-x-4">
-                @auth
-                    <a href="/profile" class="text-gray-700 hover:text-indigo-600">Profile</a>
-                    <form method="POST" action="/logout">
-                        @csrf
-                        <button class="text-gray-700 hover:text-indigo-600">Logout</button>
-                    </form>
-                @else
-                    <a href="/login" class="text-gray-700 hover:text-indigo-600">Login</a>
-                    <a href="/register" class="text-gray-700 hover:text-indigo-600">Register</a>
-                @endauth
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor"
-                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                               d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+        <!-- Genres Dropdown -->
+        <div class="relative space-x-10">
+          <button id="genres-btn"
+            class="text-gray-700 hover:text-blue-600 flex items-center focus:outline-none">
+            Genres
+            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="genres-menu"
+            class="absolute left-0 mt-1 w-40 bg-white border rounded shadow-xl hidden z-10"
+            style="margin-top: 0.3rem;"> <!-- small gap -->
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Fiction</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Non-fiction</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Sci-Fi</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Biography</a>
+          </div>
         </div>
+      </div>
+
+      <!-- Right (Account) -->
+      <div class="flex items-center ml-10">
+        <div class="relative">
+          <button id="account-btn"
+            class="text-gray-700 hover:text-blue-600 flex items-center focus:outline-none">
+            Account
+            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="account-menu"
+            class="absolute right-0 mt-1 w-40 bg-white border rounded shadow-xl hidden z-10"
+            style="margin-top: 0.3rem;"> <!-- small gap -->
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Login</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Register</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center sm:hidden">
+        <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2">
-        <a href="/" class="block text-gray-700 hover:text-indigo-600">Home</a>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="sm:hidden hidden px-2 pt-2 pb-3 space-y-1 border-t">
+    <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Home</a>
+    <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Catalog</a>
+    <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Authors</a>
 
-        <div class="border-t border-gray-200 pt-2">
-            <span class="text-sm text-gray-500">Books</span>
-            <a href="/books" class="block text-gray-700 hover:text-indigo-600 pl-2">All Books</a>
-            <a href="/books/new" class="block text-gray-700 hover:text-indigo-600 pl-2">New Arrivals</a>
-            <a href="/books/popular" class="block text-gray-700 hover:text-indigo-600 pl-2">Popular</a>
-            <a href="/books/recommended" class="block text-gray-700 hover:text-indigo-600 pl-2">Recommended</a>
-        </div>
+    <!-- Mobile Genres dropdown -->
+    <details class="group ml-5">
+      <summary class="px-3 py-2 rounded cursor-pointer text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+        Genres
+        <svg class="ml-2 h-4 w-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="pl-4 mt-1 space-y-1">
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Fiction</a>
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Non-fiction</a>
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Sci-Fi</a>
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Biography</a>
+      </div>
+    </details>
 
-        <div class="border-t border-gray-200 pt-2">
-            <span class="text-sm text-gray-500">Categories</span>
-            <a href="/categories/fiction" class="block text-gray-700 hover:text-indigo-600 pl-2">Fiction</a>
-            <a href="/categories/non-fiction" class="block text-gray-700 hover:text-indigo-600 pl-2">Non-Fiction</a>
-            <a href="/categories/scifi" class="block text-gray-700 hover:text-indigo-600 pl-2">Sci-Fi</a>
-            <a href="/categories/romance" class="block text-gray-700 hover:text-indigo-600 pl-2">Romance</a>
-            <a href="/categories/history" class="block text-gray-700 hover:text-indigo-600 pl-2">History</a>
-            <a href="/categories/children" class="block text-gray-700 hover:text-indigo-600 pl-2">Children’s</a>
-        </div>
+    <!-- Mobile Account dropdown -->
+    <details class="group mt-2">
+      <summary class="px-3 py-2 rounded cursor-pointer text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+        Account
+        <svg class="ml-2 h-4 w-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div class="pl-4 mt-1 space-y-1">
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Login</a>
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Register</a>
+        <a href="#" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Profile</a>
+      </div>
+    </details>
+  </div>
 
-        <a href="/authors" class="block text-gray-700 hover:text-indigo-600">Authors</a>
-        <a href="/my-library" class="block text-gray-700 hover:text-indigo-600">My Library</a>
-        <a href="/search" class="block text-gray-700 hover:text-indigo-600">Search</a>
-        <a href="/about" class="block text-gray-700 hover:text-indigo-600">About</a>
+  <script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
-        @auth
-            <a href="/profile" class="block text-gray-700 hover:text-indigo-600">Profile</a>
-            <form action="/logout" method="POST">
-                @csrf
-                <button type="submit" class="text-gray-700 hover:text-indigo-600">Logout</button>
-            </form>
-        @else
-            <a href="/login" class="block text-gray-700 hover:text-indigo-600">Login</a>
-            <a href="/register" class="block text-gray-700 hover:text-indigo-600">Register</a>
-        @endauth
-    </div>
+    // Dropdown toggle function
+    function setupDropdown(btnId, menuId) {
+      const btn = document.getElementById(btnId);
+      const menu = document.getElementById(menuId);
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent document click handler
+        // Toggle this menu
+        const isHidden = menu.classList.contains('hidden');
+        // Close all dropdowns first
+        document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.add('hidden'));
+        if (isHidden) {
+          menu.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+        }
+      });
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.add('hidden'));
+    });
+
+    // Setup dropdowns
+    setupDropdown('genres-btn', 'genres-menu');
+    setupDropdown('account-btn', 'account-menu');
+
+    // Add class to dropdown menus for easier selection
+    document.getElementById('genres-menu').classList.add('dropdown-menu');
+    document.getElementById('account-menu').classList.add('dropdown-menu');
+  </script>
 </nav>
